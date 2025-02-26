@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Works</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #001233;
+            color: #007bff;
+            text-align: center;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        /* Dark mode colors */
+        .dark-mode {
+            background: #001233;
+            color: #007bff;
+        }
+
+        /* Light mode colors */
+        .light-mode {
+            background: #f4f4f4;
+            color: #333;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: #000814;
+            padding: 15px 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s;
+        }
+
+        /* Dark mode nav colors */
+        .dark-mode nav {
+            background: #000814;
+        }
+
+        /* Light mode nav colors */
+        .light-mode nav {
+            background: #ffffff;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #ffffff;
+            font-size: 1.1rem;
+            font-weight: bold;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            background: #0056b3;
+            color: white;
+        }
+
+        #modeToggle {
+            background: none;
+            border: none;
+            color: #ffffff;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 10px 15px;
+            transition: 0.3s;
+        }
+
+        #modeToggle:hover {
+            background: #0056b3;
+        }
+
+        .container {
+            width: 80%;
+            margin: 100px auto 50px;
+        }
+
+        .section {
+            margin-bottom: 50px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease-out forwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section h2 {
+            font-size: 2rem;
+            color: #ffffff;
+            margin-bottom: 20px;
+        }
+
+        /* Light mode section headings */
+        .light-mode .section h2 {
+            color: #333;
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .gallery img {
+            width: 300px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+            transition: transform 0.3s ease-in-out;
+            cursor: pointer;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.1);
+        }
+
+        .video-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .video-links a {
+            display: inline-block;
+            background: #007bff;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 8px;
+            transition: 0.3s;
+            width: auto;
+        }
+
+        .video-links a:hover {
+            background: #0056b3;
+        }
+
+        footer {
+            background: #000000;
+            color: #b0c4de;
+            padding: 40px 0;
+            text-align: center;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        /* Light mode footer colors */
+        .light-mode footer {
+            background: #ffffff;
+            color: #333;
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1001;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+        }
+
+        .modal:target {
+            display: flex;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            color: #ffffff;
+            font-size: 2rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+        footer {
+            background: #000000;
+            color: #b0c4de;
+            padding: 40px 0;
+            text-align: center;
+            font-size: 1rem;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .footer-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 20px;
+        }
+
+        .footer-links a {
+            text-decoration: none;
+            color: #b0c4de;
+            transition: 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #007bff;
+        }
+
+        .footer-social a {
+            color: #b0c4de;
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: 0.3s;
+        }
+
+        .footer-social a:hover {
+            color: #007bff;
+        }
+
+        .footer-contact p {
+            margin: 5px 0;
+        }
+
+        .footer-copy {
+            font-size: 0.9rem;
+            color: #7f8c8d;
+        }
+    </style>
+</head>
+
+<body class="dark-mode">
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="edu.html">Education</a></li>
+            <li><a href="other.html">Other</a></li>
+            <li><a href="contact.html">Contact Me</a></li>
+            <li><a href="about.html">About Me</a></li>
+        </ul>
+        <button id="modeToggle">☀️</button>
+    </nav>
+
+    <div class="container">
+        <div class="section" id="volunteer">
+            <h2>My Volunteer Experience</h2>
+            <p>As the President of Zero Plastic SIBA Community, I have been actively working on environmental conservation and community awareness programs.</p>
+            <div class="gallery">
+                <a href="#modal1"><img src="v1.jpg" alt="Design 1"></a>
+                <a href="#modal2"><img src="v2.jpg" alt="Design 2"></a>
+                <a href="#modal3"><img src="v3.jpg" alt="Design 3"></a>
+            </div>
+        </div>
+
+        <div class="section" id="graphic-design">
+            <h2>My Graphic Design Works</h2>
+            <div class="gallery">
+                <a href="#modal4"><img src="d1.png" alt="Design 1"></a>
+                <a href="#modal5"><img src="d2.jpg" alt="Design 2"></a>
+                <a href="#modal6"><img src="d3.jpg" alt="Design 3"></a>
+            </div>
+        </div>
+
+        <div class="section" id="video-editing">
+            <h2>My Video Editing Works</h2>
+            <p>You can watch the videos I have edited via the buttons below:</p>
+            <div class="video-links">
+                <a href="https://web.facebook.com/watch/?v=449558484723338" target="_blank">SIBA Campus DANZA</a>
+                <a href="https://web.facebook.com/100093997066292/videos/571234462583463" target="_blank">Youn Daham Sakmana 1</a>
+                <a href="https://web.facebook.com/100093997066292/videos/1291671645459501" target="_blank">Youn Daham Sakmana 2</a>
+                <a href="https://web.facebook.com/100093997066292/videos/1669204996977321" target="_blank">Zero Plastic Trail</a>
+                <a href="https://web.facebook.com/100093997066292/videos/484544827501967" target="_blank">Plastic Bag Free Day</a>
+            </div>
+        </div>
+
+        <div class="section" id="graphic-design">
+            <h2>My Other Talents</h2>
+            <div class="gallery">
+                <a href="#modal7"><img src="t1.jpg" alt="Design 1"></a>
+                <a href="#modal8"><img src="t2.jpg" alt="Design 2"></a>
+                <a href="#modal9"><img src="t3.jpg" alt="Design 3"></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for image preview -->
+    <div id="modal1" class="modal">
+        <button class="modal-close" onclick="window.location.hash='';">×</button>
+        <img src="v1.jpg" alt="Design 1">
+    </div>
+    <div id="modal2" class="modal">
+        <button class="modal-close" onclick="window.location.hash='';">×</button>
+        <img src="v2.jpg" alt="Design 2">
+    </div>
+    <div id="modal3" class="modal">
+        <button class="modal-close" onclick="window.location.hash='';">×</button>
+        <img src="v3.jpg" alt="Design 3">
+    </div>
+    <div id="modal4" class="modal">
+        <button class="modal-close" onclick="window.location.hash='';">×</button>
+        <img src="d1.png" alt="Design 1">
+    </div>
+    <div id="modal5" class="modal">
+        <button class="modal-close" onclick="window.location.hash='';">×</button>
+        <img src="d2.jpg" alt="Design 2">
+    </div>
+    <div id="modal6" class="modal">
+        <button class="modal-close" onclick="window.location.hash='';">×</button>
+        <img src="d3.jpg" alt="Design 3">
+    </div>
+    <div id="modal7" class="modal">
+        <button class="modal-close" onclick="window.location.hash='';">×</button>
+        <img src="t1.jpg" alt="Design 3">
+    </div>
+    <div id="modal8" class="modal">
+        <button class="modal-close" onclick="window.location.hash='';">×</button>
+        <img src="t2.jpg" alt="Design 3">
+    </div>
+    <div id="modal9" class="modal">
+        <button class="modal-close" onclick="window.location.hash='';">×</button>
+        <img src="t3.jpg" alt="Design 3">
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-links">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="edu.html">Education</a></li>
+                    <li><a href="other.html">Other</a></li>
+                    <li><a href="contact.html">Contact Me</a></li>
+                    <li><a href="about.html">About Me</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <a href="https://web.facebook.com/sandaru.wimansaaththanayake" target="_blank">Facebook</a>
+                <a href="https://www.linkedin.com/in/sandaru-wimansa/" target="_blank">LinkedIn</a>
+                <a href="https://github.com/Sandaru20020102" target="_blank">GitHub</a>
+            </div>
+            <div class="footer-contact">
+                <p>📧 Email: sandaruwimansa@gmail.com</p>
+            </div>
+            <div class="footer-copy">
+                <p>&copy; Sandaru Wimansa. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Toggle between dark and light mode
+        const modeToggle = document.getElementById('modeToggle');
+        const body = document.body;
+
+        modeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            body.classList.toggle('light-mode');
+
+            if (body.classList.contains('dark-mode')) {
+                modeToggle.innerText = '☀️';
+            } else {
+                modeToggle.innerText = '🌙';
+            }
+        });
+    </script>
+</body>
+
+</html>
