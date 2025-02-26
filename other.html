@@ -222,6 +222,7 @@
             border: none;
             cursor: pointer;
         }
+
         footer {
             background: #000000;
             color: #b0c4de;
@@ -278,6 +279,66 @@
             font-size: 0.9rem;
             color: #7f8c8d;
         }
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background: #000814;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                padding: 10px 0;
+                text-align: left;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+
+            nav ul li a {
+                font-size: 1rem;
+            }
+
+            nav.active ul {
+                display: flex;
+            }
+
+            #modeToggle {
+                font-size: 2rem;
+            }
+
+            .container {
+                width: 90%;
+            }
+
+            .gallery img {
+                width: 100%;
+                height: auto;
+            }
+        }
+
+        /* Hamburger menu */
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+
+        .hamburger div {
+            width: 30px;
+            height: 3px;
+            background-color: white;
+            margin: 6px 0;
+            transition: 0.4s;
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+        }
     </style>
 </head>
 
@@ -291,6 +352,11 @@
             <li><a href="about.html">About Me</a></li>
         </ul>
         <button id="modeToggle">☀️</button>
+        <div class="hamburger" id="hamburger">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
     </nav>
 
     <div class="container">
@@ -405,14 +471,16 @@
         const body = document.body;
 
         modeToggle.addEventListener('click', () => {
-            body.classList.toggle('dark-mode');
             body.classList.toggle('light-mode');
+            body.classList.toggle('dark-mode');
+            modeToggle.textContent = body.classList.contains('light-mode') ? '🌙' : '☀️';
+        });
 
-            if (body.classList.contains('dark-mode')) {
-                modeToggle.innerText = '☀️';
-            } else {
-                modeToggle.innerText = '🌙';
-            }
+        // Hamburger menu toggle
+        const hamburger = document.getElementById('hamburger');
+        const nav = document.querySelector('nav');
+        hamburger.addEventListener('click', () => {
+            nav.classList.toggle('active');
         });
     </script>
 </body>

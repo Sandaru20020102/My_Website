@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
     <script src="script.js" defer></script>
     <style>
         /* Default Dark Mode Styles */
@@ -13,8 +12,8 @@
             font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
-            background: #001233; /* Dark background for default dark mode */
-            color: #007bff; /* Blue text for dark mode */
+            background: #001233;
+            color: #007bff;
             text-align: center;
             transition: background 0.3s, color 0.3s;
         }
@@ -25,7 +24,7 @@
             top: 0;
             left: 0;
             width: 100%;
-            background: #000814; /* Darker blue for dark mode */
+            background: #000814;
             padding: 15px 0;
             z-index: 1000;
             display: flex;
@@ -55,7 +54,7 @@
         }
 
         nav ul li a:hover {
-            background: #0056b3; /* Darker blue on hover */
+            background: #0056b3;
             color: white;
         }
 
@@ -76,7 +75,7 @@
 
         /* Mobile Menu Button */
         #hamburger {
-            display: none; /* Hide by default */
+            display: none;
             font-size: 2rem;
             background: none;
             border: none;
@@ -86,7 +85,7 @@
         }
 
         #hamburger.open {
-            display: block; /* Show when menu is open */
+            display: block;
         }
 
         /* Page Content */
@@ -99,7 +98,6 @@
             flex-direction: column;
             position: relative;
             margin-top: 70px;
-            /* To ensure the navbar doesn't cover the content */
         }
 
         .hero {
@@ -109,7 +107,7 @@
             width: 80%;
             max-width: 1200px;
             position: relative;
-            flex-wrap: wrap; /* Allows content to wrap on smaller screens */
+            flex-wrap: wrap;
         }
 
         .hero-text {
@@ -117,10 +115,8 @@
             max-width: 500px;
             animation: fadeInText 1.5s ease-out;
             z-index: 2;
-            /* Ensure text stays above the rings */
         }
 
-        /* Hero Text Animation */
         @keyframes fadeInText {
             from {
                 opacity: 0;
@@ -136,15 +132,14 @@
         .hero-text h1 {
             font-size: 3rem;
             font-weight: bold;
-            color: #ffffff; /* White text for header in dark mode */
+            color: #ffffff;
         }
 
         .hero-text p {
             font-size: 1.2rem;
-            color: #b0c4de; /* Lighter text for readability */
+            color: #b0c4de;
         }
 
-        /* Hero Image */
         .hero img {
             width: 350px;
             height: 350px;
@@ -153,10 +148,8 @@
             box-shadow: 0 0 20px rgba(0, 123, 255, 0.5);
             position: relative;
             z-index: 3;
-            /* Ensure the image is above */
         }
 
-        /* Buttons */
         .buttons {
             margin-top: 20px;
         }
@@ -194,18 +187,126 @@
             color: white;
         }
 
-        /* Light Mode Styles */
+        
+        /* Skills Section */
+        .skills-section {
+            margin-top: 50px;
+            padding: 20px;
+            background: #1e2a47;
+            color: #b0c4de;
+            border-radius: 10px;
+            text-align: left;
+        }
+
+        .skills-section h2 {
+            font-size: 2rem;
+            color: #ffffff;
+            margin-bottom: 20px;
+        }
+
+        .skills-bar {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .skill {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .skill span {
+            font-size: 1rem;
+            font-weight: bold;
+            color: #ffffff;
+        }
+
+        .skill-bar-container {
+            width: 100%;
+            height: 8px;
+            /* Thinner line */
+            background-color: #2a3b5c;
+            border-radius: 5px;
+            position: relative;
+        }
+
+        .skill-bar {
+            height: 100%;
+            border-radius: 5px;
+            text-align: right;
+            padding-right: 5px;
+            font-size: 0.8rem;
+            color: white;
+            line-height: 8px;
+            transition: width 0.5s ease-in-out;
+            /* Smooth transition */
+        }
+
+
+        /* Colors based on percentage */
+        .skill-bar[data-level="65"] {
+            background-color: red;
+            width: 65%;
+        }
+
+        .skill-bar[data-level="75"] {
+            background-color: red;
+            width: 75%;
+        }
+
+        .skill-bar[data-level="70"] {
+            background-color: red;
+            width: 70%;
+        }
+
+        .skill-bar[data-level="85"] {
+            background-color: green;
+            width: 85%;
+        }
+
+        .skill-bar[data-level="80"] {
+            background-color: green;
+            width: 80%;
+        }
+
+        .skill-bar[data-level="90"] {
+            background-color: blue;
+            width: 90%;
+        }
+
+        .skill-bar[data-level="95"] {
+            background-color: blue;
+            width: 95%;
+        }
+
+        .skill-bar[data-level="100"] {
+            background-color: blue;
+            width: 100%;
+        }
+
+
+
+        .light-mode .skills-section {
+            background: #f4f6f9;
+            color: #333;
+        }
+
+        .light-mode .skill-bar {
+            background-color: #007bff;
+        }
+
         .light-mode {
-            background: #ffffff; /* White background for light mode */
-            color: #000000; /* Black text for light mode */
+            background: #ffffff;
+            color: #000000;
         }
 
         .light-mode nav {
-            background: #007bff; /* Blue background for light mode */
+            background: #007bff;
         }
 
         .light-mode .hero-text h1 {
-            color: #007bff; /* Blue text for header in light mode */
+            color: #007bff;
         }
 
         .light-mode .btn-primary {
@@ -276,10 +377,9 @@
             color: #7f8c8d;
         }
 
-        /* Responsive Design for Smaller Screens */
         @media (max-width: 768px) {
             .hero {
-                flex-direction: column; /* Stack the image and text vertically */
+                flex-direction: column;
                 align-items: center;
                 justify-content: center;
             }
@@ -295,8 +395,8 @@
             }
 
             nav ul {
-                display: none; /* Hide the navbar on mobile */
-                flex-direction: column; /* Stack the navbar items vertically */
+                display: none;
+                flex-direction: column;
                 align-items: center;
             }
 
@@ -305,15 +405,15 @@
             }
 
             #hamburger {
-                display: block; /* Show the hamburger button on mobile */
+                display: block;
             }
 
             nav.open ul {
-                display: flex; /* Show the navbar when it's toggled */
+                display: flex;
             }
 
             .footer-links ul {
-                flex-direction: column; /* Stack footer links vertically */
+                flex-direction: column;
             }
 
             .footer-social {
@@ -326,18 +426,17 @@
             }
         }
 
-        /* Extra Small Screens (Mobile) */
         @media (max-width: 480px) {
             .hero-text h1 {
-                font-size: 2rem; /* Smaller header on mobile */
+                font-size: 2rem;
             }
 
             .hero-text p {
-                font-size: 1rem; /* Smaller text on mobile */
+                font-size: 1rem;
             }
 
             .footer-contact p {
-                font-size: 0.9rem; /* Smaller footer text */
+                font-size: 0.9rem;
             }
         }
     </style>
@@ -353,9 +452,7 @@
             <li><a href="contact.html">Contact Me</a></li>
             <li><a href="about.html">About Me</a></li>
         </ul>
-        <!-- Dark Mode Toggle Button -->
         <button id="modeToggle">☀️</button>
-        <!-- Hamburger Menu for Mobile -->
         <button id="hamburger" aria-label="Toggle Navigation">☰</button>
     </nav>
 
@@ -363,15 +460,60 @@
         <div class="hero" id="home">
             <div class="hero-text">
                 <h1>Hi, I'm Sandaru</h1>
-                <p>I am currently an undergraduate student at SIBA Campus, pursuing a Bachelor of Science in Information Technology (BSc IT).</p>
+                <p>I am currently an undergraduate student at SIBA Campus, pursuing a Bachelor of Science in Information
+                    Technology (BSc IT).</p>
                 <div class="buttons">
                     <a href="other.html" class="btn-primary">View My Work</a>
                     <a href="contact.html" class="btn-secondary">Contact Me</a>
                 </div>
+                <!-- Added words below the buttons -->
+                <p id="displayText"></p>
             </div>
             <img src="mine.jpg" alt="My Photo">
         </div>
     </div>
+
+    <!-- Skills Section -->
+    <div class="skills-bar">
+    <div class="skill">
+        <span>Web Development</span>
+        <div class="skill-bar-container">
+            <div class="skill-bar" data-level="90"></div>
+        </div>
+    </div>
+    <div class="skill">
+        <span>Web Design</span>
+        <div class="skill-bar-container">
+            <div class="skill-bar" data-level="95"></div>
+        </div>
+    </div>
+    <div class="skill">
+        <span>Graphic Design</span>
+        <div class="skill-bar-container">
+            <div class="skill-bar" data-level="85"></div>
+        </div>
+    </div>
+    <div class="skill">
+        <span>UI/UX Design</span>
+        <div class="skill-bar-container">
+            <div class="skill-bar" data-level="90"></div>
+        </div>
+    </div>
+    <div class="skill">
+        <span>Video Editing</span>
+        <div class="skill-bar-container">
+            <div class="skill-bar" data-level="80"></div>
+        </div>
+    </div>
+    <div class="skill">
+        <span>Back-end Development</span>
+        <div class="skill-bar-container">
+            <div class="skill-bar" data-level="70"></div>
+        </div>
+    </div>
+</div>
+
+
 
     <!-- Footer -->
     <footer>
@@ -404,18 +546,66 @@
         document.getElementById("modeToggle").addEventListener("click", function () {
             document.body.classList.toggle("dark-mode");
             document.body.classList.toggle("light-mode");
-            // Change the icon text between 🌙 and ☀️ based on dark mode state
             if (document.body.classList.contains("dark-mode")) {
-                document.getElementById("modeToggle").textContent = "☀️"; // Sun icon for light mode
+                document.getElementById("modeToggle").innerText = "☀️";
             } else {
-                document.getElementById("modeToggle").textContent = "🌙"; // Moon icon for dark mode
+                document.getElementById("modeToggle").innerText = "🌙";
             }
         });
 
-        // Toggle mobile menu
+        // Hamburger menu functionality for mobile
         document.getElementById("hamburger").addEventListener("click", function () {
             document.querySelector("nav").classList.toggle("open");
         });
+
+        // Typing effect function
+        const words = ["Web Developer", "Graphic Designer", "UI UX Designer", "Video Editor", "Back end Developer"];
+        let currentWordIndex = 0;
+        let currentCharIndex = 0;
+        let typingSpeed = 100; // Speed of typing
+        let deletingSpeed = 50; // Speed of deletion
+        let isDeleting = false;
+
+        function typeText() {
+            const displayText = document.getElementById("displayText");
+            const currentWord = words[currentWordIndex];
+
+            if (isDeleting) {
+                displayText.innerText = currentWord.substring(0, currentCharIndex);
+                currentCharIndex--;
+
+                if (currentCharIndex === 0) {
+                    isDeleting = false;
+                    currentWordIndex = (currentWordIndex + 1) % words.length;
+                }
+            } else {
+                displayText.innerText = currentWord.substring(0, currentCharIndex);
+                currentCharIndex++;
+
+                if (currentCharIndex === currentWord.length) {
+                    isDeleting = true;
+                }
+            }
+        }
+
+        function startTypingLoop() {
+            setInterval(typeText, isDeleting ? deletingSpeed : typingSpeed);
+        }
+
+        // Start typing loop after a slight delay
+        setTimeout(startTypingLoop, 1500); // Wait 1.5 seconds before starting typing loop
+
+        document.addEventListener("DOMContentLoaded", function () {
+    const skillBars = document.querySelectorAll(".skill-bar");
+
+    skillBars.forEach(skillBar => {
+        let level = skillBar.getAttribute("data-level");
+        skillBar.style.width = level + "%";
+        skillBar.innerText = level + "%"; // Ensure correct percentage is displayed
+    });
+});
+
+
     </script>
 </body>
 

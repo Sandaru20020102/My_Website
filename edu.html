@@ -106,9 +106,11 @@
         /* Modern Table Styling */
         .results-table {
             margin-top: 20px;
-            width: 45%; /* Adjusted to fit side by side */
+            width: 45%;
+            /* Adjusted to fit side by side */
             overflow-x: auto;
-            margin: 0 10px; /* Space between tables */
+            margin: 0 10px;
+            /* Space between tables */
         }
 
         .results-table table {
@@ -165,6 +167,59 @@
             font-weight: bold;
         }
 
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .results-table tbody tr {
+            opacity: 0;
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        .results-table tbody tr:nth-child(1) {
+            animation-delay: 0.2s;
+        }
+
+        .results-table tbody tr:nth-child(2) {
+            animation-delay: 0.4s;
+        }
+
+        .results-table tbody tr:nth-child(3) {
+            animation-delay: 0.6s;
+        }
+
+        .results-table tbody tr:nth-child(4) {
+            animation-delay: 0.8s;
+        }
+
+        .results-table tbody tr:nth-child(5) {
+            animation-delay: 1s;
+        }
+
+        .results-table tbody tr:nth-child(6) {
+            animation-delay: 1.2s;
+        }
+
+        .results-table tbody tr:nth-child(7) {
+            animation-delay: 1.4s;
+        }
+
+        .results-table tbody tr:nth-child(8) {
+            animation-delay: 1.6s;
+        }
+
+        .results-table tbody tr:nth-child(9) {
+            animation-delay: 1.8s;
+        }
+
         /* Other Qualifications */
         .other-qualifications {
             margin-top: 40px;
@@ -179,6 +234,94 @@
             margin-bottom: 10px;
             font-size: 1.1rem;
         }
+
+        /* Other Qualifications List Animation */
+        .other-qualifications ul {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s ease-out forwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Individual List Items Animation */
+        .other-qualifications li {
+            opacity: 0;
+            transform: translateX(-20px);
+            animation: slideIn 0.5s ease-out forwards;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Delay each list item */
+        .other-qualifications li:nth-child(1) {
+            animation-delay: 0.2s;
+        }
+
+        .other-qualifications li:nth-child(2) {
+            animation-delay: 0.4s;
+        }
+
+        .other-qualifications li:nth-child(3) {
+            animation-delay: 0.6s;
+        }
+
+        .other-qualifications li:nth-child(4) {
+            animation-delay: 0.8s;
+        }
+
+        .other-qualifications li:nth-child(5) {
+            animation-delay: 1s;
+        }
+
+        .other-qualifications li:nth-child(6) {
+            animation-delay: 1.2s;
+        }
+
+        .other-qualifications li:nth-child(7) {
+            animation-delay: 1.4s;
+        }
+
+        .other-qualifications li:nth-child(8) {
+            animation-delay: 1.6s;
+        }
+
+        .other-qualifications li:nth-child(9) {
+            animation-delay: 1.8s;
+        }
+
+        .other-qualifications li:nth-child(10) {
+            animation-delay: 2s;
+        }
+
+        .other-qualifications li:nth-child(11) {
+            animation-delay: 2.2s;
+        }
+
+        .other-qualifications li:nth-child(12) {
+            animation-delay: 2.4s;
+        }
+
 
         /* Light Mode Styles */
         .light-mode {
@@ -263,19 +406,88 @@
             background-color: #00aaff;
             padding: 5px;
         }
+
+        /* Media Queries for Responsive Design */
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                align-items: center;
+                background: #000814;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                padding: 20px 0;
+                z-index: 999;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+
+            nav ul li a {
+                font-size: 1.3rem;
+                padding: 12px 20px;
+            }
+
+            #modeToggle {
+                font-size: 1.2rem;
+            }
+
+            .hamburger {
+                display: block;
+                cursor: pointer;
+            }
+
+            .hamburger span {
+                background-color: #ffffff;
+                display: block;
+                height: 3px;
+                width: 25px;
+                margin: 5px 0;
+                transition: 0.3s;
+            }
+
+            .show-menu {
+                display: block !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .education-section {
+                width: 90%;
+                padding: 15px;
+            }
+
+            .results-table {
+                width: 100%;
+                margin: 10px 0;
+            }
+
+            footer .footer-container {
+                gap: 10px;
+            }
+        }
     </style>
 </head>
 
 <body class="dark-mode">
     <!-- Navigation Bar -->
     <nav>
-        <ul>
+        <ul id="navLinks">
             <li><a href="index.html">Home</a></li>
             <li><a href="edu.html">Education</a></li>
             <li><a href="other.html">Other</a></li>
             <li><a href="contact.html">Contact Me</a></li>
             <li><a href="about.html">About Me</a></li>
         </ul>
+        <!-- Hamburger Icon -->
+        <div class="hamburger" id="hamburgerMenu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
         <!-- Dark Mode Toggle Button -->
         <button id="modeToggle">☀️</button>
     </nav>
@@ -431,6 +643,11 @@
             } else {
                 document.getElementById("modeToggle").textContent = "🌙"; // Moon icon for dark mode
             }
+        });
+
+        // Toggle Hamburger Menu
+        document.getElementById("hamburgerMenu").addEventListener("click", function () {
+            document.getElementById("navLinks").classList.toggle("show-menu");
         });
     </script>
 </body>
